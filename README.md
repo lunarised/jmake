@@ -1,4 +1,4 @@
-#jmake
+# jmake
 
 A basic command line tool written in bash to automatically name
 and initialise jekyll posts
