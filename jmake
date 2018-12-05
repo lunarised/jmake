@@ -1,34 +1,28 @@
 #!/bin/bash
 set -e
 
-uflag=false
 function usage {
 	cat <<EOF
-Usage: $0 [-h -u Username]
+Usage: $0 [-h] filename
 
 Creates a jekyll post file with filled headers
 
 -h  | Show help
--u: | Specify username
 EOF
 }
 
-while getopts "hu:" o; do
+while getopts "h" o; do
 	case "$o" in
 		h)usage;;
-		u)uflag=true;uN="$OPTARG";;
 		:)echo "Missing option argument for -$OPTARG";exit 1;;
 	esac
 done
 shift $((OPTIND -1))
 fname="${@: -1}"
 if [ -z "$@" ]; then
-echo "Argument for -u missing"
+echo "Filename missing"
 echo "The program will now exit"
 exit 1
-fi
-if [ "$uflag" = true ]; then
-echo $uN
 fi
 d=$(date +%Y-%m-%d)
 t=$(date +%T)
