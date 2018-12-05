@@ -31,3 +31,24 @@ if [ "$uflag" = true ]; then
 echo $uN
 fi
 d=$(date +%Y-%m-%d)
+t=$(date +%T)
+tz=$(date +%z) 
+fileName="$d-$fname.md"
+echo $fileName
+if [ -e $fileName ]; then
+read -p  "File of this name exists. Do you wish to delete it? (y/n) " answer
+case ${answer:0:1} in
+	y|Y )
+		rm $fileName;;
+	* )
+		exit 0;;
+esac
+fi
+touch $fileName
+echo "---" >> $fileName
+echo "layout: post" >> $fileName
+echo "title: $fname" >> $fileName
+echo "date: $d $t $tz" >> $fileName
+echo -e "---\n" >> $fileName
+
+vim + +star $fileName 
