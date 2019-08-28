@@ -24,7 +24,7 @@ echo "Filename missing"
 echo "The program will now exit"
 exit 1
 fi
-d=$(date +%Y-%m-%d)
+d=$(date +%F)
 t=$(date +%T)
 tz=$(date +%z) 
 fileName="$d-$fname.md"
