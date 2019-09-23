@@ -5,4 +5,4 @@ and initialise jekyll posts
 
 Usage: jmake [-h] filename
 
-Please contact j@p7.co.nz with any questions or suggestions
+Please contact lunarised@outlook.com with any questions or suggestions
